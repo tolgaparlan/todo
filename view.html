@@ -1,0 +1,16 @@
+<h1>Tasks</h1>
+
+<ul>
+{{range $el := .}}
+    <li>
+        <a href="/edit/{{$el.ID}}">{{$el.Title}}</a>: {{$el.Text}}
+        <a href="/delete/{{$el.ID}}"><button>Delete</button></a>
+    </li>
+{{end}}
+</ul>
+
+<form action="/create/" method="POST">
+    <div><input name="title" type="text"></input></div>
+    <div><textarea name="text" rows="20" cols="80"></textarea></div>
+    <div><input type="submit" value="Save"></div>
+</form>
